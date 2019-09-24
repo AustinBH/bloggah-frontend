@@ -17,6 +17,15 @@
   color: white;
 }
 
+.header-holder {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  background-color: #09d3ac;
+  color: #282c34;
+  width: 100%;
+}
+
 .App-link {
   color: #09d3ac;
 }
