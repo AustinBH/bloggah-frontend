@@ -1,23 +1,31 @@
-import React, {useState, useEffect} from 'react';
+import React, { Component } from 'react';
 import { api } from '../services/api';
 
-const PostsHolder = props => {
+class PostsHolder extends Component {
 
-    const [posts, setPosts] = useState([])
+    state = {
+        posts: []
+    }
 
-    const displayPosts = () => {
+    displayPosts = () => {
         return api.posts.getPosts().then(json => {
-            return setPosts(json)
+            return this.setState({posts: json})
         })
     }
 
-    useEffect(() => {
-        displayPosts()
-    })
+    componentDidMount(){
+        this.displayPosts()
+    }
 
-    return <div>
-        {posts.map(post => post.title)}
-    </div>
+    render() {
+        return this.state.posts.map(post => {
+            return <div key={post.id}>
+                <h1>Title: {post.title}</h1>
+                <p>Written by: {post.user.username}</p>
+                <p>Content: {post.content}</p>
+                <p>Comments: {post.comments.map(comment => comment.text)}</p>
+            </div>})
+    };
 }
 
 export default PostsHolder

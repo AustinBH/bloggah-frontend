@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import { Menu, Input } from 'semantic-ui-react';
+import NewPost from './NewPost';
+import PostsHolder from './PostsHolder';
 
 const SideNav = props => {
 
@@ -18,8 +20,8 @@ const SideNav = props => {
                 <Input icon='search' placeholder='Search posts...' value={search} onChange={handleChange} />
             </Menu.Item>
         </Menu>
-        <Route path='/' exact render={props => null}/>
-        <Route path='/new' exact render={props => null}/>
+        <Route path='/' exact render={props => <PostsHolder {...props} />}/>
+        <Route path='/new' exact render={props => <NewPost {...props} />}/>
     </Router>
 }
 
