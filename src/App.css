@@ -35,3 +35,9 @@
   left: 0px;
   top: 36px;
 }
+
+.new-post-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
