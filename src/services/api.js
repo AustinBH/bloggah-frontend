@@ -11,9 +11,9 @@ const getPosts = (id='') => {
     }).then(res => res.json())
 }
 
-const createPost = (data) => {
+const createPost = data => {
     return fetch(`${MAIN_URL}/post`, {
-        header: HEADERS,
+        headers: HEADERS,
         method: 'POST',
         body: JSON.stringify(data)
     }).then(res => res.json())
