@@ -6,8 +6,10 @@ import SideNav from './components/SideNav';
 function App() {
   return (
     <div className="App-header">
-      <SiteHeader/>
-      <SideNav/>
+      <SiteHeader />
+      <div style={{marginTop: 36, textAlign: 'center'}}>
+        <SideNav />
+      </div>
     </div>
   );
 }

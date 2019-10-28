@@ -34,6 +34,16 @@
   position: fixed;
   left: 0px;
   top: 36px;
+  padding-top: 10px;
+}
+
+.side-nav a {
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.side-nav a.active {
+  background-color: #09d3ac;
 }
 
 .new-post-form {
