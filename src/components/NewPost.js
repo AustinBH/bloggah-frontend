@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { api } from '../services/api';
 
 const NewPost = props => {
 
-    const [title, setTitle] = useState('')
-    const [content, setContent] = useState('')
-    const [message, setMessage] = useState('')
+    const [title, setTitle] = React.useState('');
+    const [content, setContent] = React.useState('');
+    const [message, setMessage] = React.useState('');
 
     const displayMessage = jsonMessage => {
         if (jsonMessage.error) {
-            let message = ''
+            let message = '';
             // Need to catch multiple errors if they exist
             for (let error in jsonMessage.error) {
                 message += error + ' ' + jsonMessage.error[error] + ' '
@@ -36,10 +36,10 @@ const NewPost = props => {
     }
 
     // We want to clear out the message after 4 seconds when a post is submitted
-    useEffect(() => {
+    React.useEffect(() => {
         let timer = setTimeout(() => setMessage(''), 4000);
-        return () => clearTimeout(timer)
-    }, [message])
+        return () => clearTimeout(timer);
+    }, [message]);
 
     return <div className='new-post'>
         <h1>New Post</h1>
