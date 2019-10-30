@@ -41,17 +41,29 @@ const NewPost = props => {
         return () => clearTimeout(timer);
     }, [message]);
 
-    return <div className='new-post'>
+    return (
+      <div className="new-post">
         <h1>New Post</h1>
-        <form className='new-post-form' onSubmit={handleSubmit}>
-            <label>Title:</label>
-            <input onChange={handleChange} value={title} type='text' name='title'/>
-            <label>Content:</label>
-            <input onChange={handleChange} value={content} type='text-area' name='content'/>
-            <input type='submit' value='Create post'/>
+        <form className="new-post-form" onSubmit={handleSubmit}>
+          <label>Title:</label>
+          <input
+            onChange={handleChange}
+            value={title}
+            type="text"
+            name="title"
+          />
+          <label>Content:</label>
+          <input
+            onChange={handleChange}
+            value={content}
+            type="text-area"
+            name="content"
+          />
+          <input type="submit" value="Create post" />
         </form>
-        {message}
-    </div>
+        <p>{message}</p>
+      </div>
+    );
 }
 
 export default NewPost;
