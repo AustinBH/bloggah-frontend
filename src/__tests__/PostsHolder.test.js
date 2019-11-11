@@ -11,6 +11,7 @@ it('renders without crashing', () => {
 
 describe("<PostsHolder />", () => {
     let wrapper;
+    const fetchSpy = jest.spyOn(global, "fetch");
 
     beforeEach(() => {
         wrapper = Enzyme.mount(<PostsHolder />);
@@ -22,5 +23,11 @@ describe("<PostsHolder />", () => {
 
     it("has an initial state of posts as an empty array", () => {
         expect(wrapper.state()).toEqual({ posts: []});
+    });
+
+    describe("Fetch posts", () => {
+        it("Should fetch posts when component is mounted", () => {
+            expect(fetchSpy).toBeCalled();
+        });
     });
 });
