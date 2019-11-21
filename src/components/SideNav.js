@@ -6,24 +6,23 @@ import PostsHolder from './PostsHolder';
 const SideNav = props => {
 
     return (
-        <Router>
-          <div className="side-nav">
-            <NavLink
-              name="Home"
-              exact
-              to="/"
-              activeClassName="active"
-            >Home</NavLink>
+      <Router>
+        <div className="side-nav">
+            <NavLink name="Home" exact to="/" activeClassName="active">
+              Home
+            </NavLink>
             <NavLink
               name="Create New Post"
               exact
               to="/new"
               activeClassName="active"
-            >Create New Post</NavLink>
+            >
+              Create New Post
+            </NavLink>
           </div>
           <Route path="/" exact render={props => <PostsHolder {...props} />} />
           <Route path="/new" exact render={props => <NewPost {...props} />} />
-        </Router>
+      </Router>
     );
 }
 
