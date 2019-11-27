@@ -2,10 +2,8 @@ import React from "react";
 import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import NewPost from "../components/NewPost";
-import fetch from "../__mocks__/fetch";
 
 Enzyme.configure({adapter: new Adapter() });
-global.fetch = fetch;
 
 it("renders without crashing", () => {
     Enzyme.shallow(<NewPost />);
@@ -45,9 +43,10 @@ describe("<NewPost />", () => {
 
     describe("Form submission", () => {
         it("Should fetch when form is submitted", () => {
-            const fetchSpy = jest.spyOn(window, "fetch");
+            const fetchSpy = jest.spyOn(global, "fetch");
             const form = wrapper.find("form");
             form.simulate("submit");
+            expect
             expect(fetchSpy).toBeCalled();
         });
     });
